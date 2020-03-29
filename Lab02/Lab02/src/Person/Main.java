@@ -10,6 +10,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  *
@@ -42,12 +45,12 @@ public class Main
     for(EmailRecipient recipient : spamList) 
     {
         String email = recipient.getEmailAddress();
-        System.out.println(email);
+        //System.out.println(email);
     }
     
     Student ja = new Student("Jakub", "Rutkowski", "rj34361@wi.zut.edu.pl", "32D");
     ja.getFirstName();
-    System.out.println(ja);
+    //System.out.println(ja);
     ja.addGrade(3);
     ja.addGrade(5);
     ja.addGrade(3);
@@ -60,10 +63,68 @@ public class Main
     zut.getFaculties();
     
     
+        List<String> nazwiska = new ArrayList<>();
+        nazwiska.add("Kowalski");
+        nazwiska.add("Nowak");
+        
+        for(String nazwisko : nazwiska){
+            System.out.println(nazwisko);
+        }
+        
+        for (int i=0; i<nazwiska.size(); i++){
+            String nazwisko = nazwiska.get(i);
+            System.out.println(nazwisko);
+        }
+        
+        
+        Map<String, String> dniTygodnia = new HashMap<>();
+        dniTygodnia.put("pn", "poniedziałek");
+        dniTygodnia.put("wt", "wtorek");
+        dniTygodnia.put("sr", "sroda");
+        dniTygodnia.put("czw", "czwartek");
+        
+        String dzien1 = dniTygodnia.get("pn");
+        System.out.println("Skrot 'pn' oznacza: " + dzien1);
+        
+        for (String skrot : dniTygodnia.keySet()){
+            String dzien = dniTygodnia.get(skrot);
+            System.out.println(skrot + " - " + dzien);
+        }
+        
+    
+    
     Map<String, Person> osoby = new HashMap<>();
     osoby.put("90010112345", new Person("Jan", "Kowalski","JanKowalski@mail.pl"));
     
     Map<Integer, List<Student>> grupy = new HashMap<>();
     List<Student> grupa32 = new ArrayList<>();
+    grupa32.add(new Student("Jan", "Kowalski", "JanKowalski@mail.pl", "32"));
+    grupa32.add(new Student("Zenon", "Nowak", "ZenonNowak@mail.pl", "32"));
+    grupy.put(32, grupa32);
+    
+    
+    Set<String> zbiorDni = new HashSet<>();
+    //Set<String> zbiorDni = new TreeSet<>();
+    //
+    zbiorDni.add("poniedziałek");
+    zbiorDni.add("wtorek");
+    zbiorDni.add("sroda");
+    zbiorDni.add("czwartek");
+    zbiorDni.add("piatek");
+    zbiorDni.add("sobota");
+    zbiorDni.add("niedziela");
+
+    
+    System.out.println("-------");
+    System.out.println(zbiorDni);
+    
+    for(String dzien : zbiorDni){
+        System.out.println(dzien);
+    }
+    
+    
+    
+    
+    
     }
 }
