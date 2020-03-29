@@ -5,6 +5,12 @@
  */
 package Person;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  *
  * @author Student
@@ -38,5 +44,26 @@ public class Main
         String email = recipient.getEmailAddress();
         System.out.println(email);
     }
+    
+    Student ja = new Student("Jakub", "Rutkowski", "rj34361@wi.zut.edu.pl", "32D");
+    ja.getFirstName();
+    System.out.println(ja);
+    ja.addGrade(3);
+    ja.addGrade(5);
+    ja.addGrade(3);
+    ja.addGrade(2);
+    ja.getGradesAverage();
+    Faculty f1 = new Faculty("Analiza Matematyczna i Algebra Liniowa I","amial2@zut.edu.pl");
+    zut.addFaculty(f1);
+    Faculty f2 = new Faculty("Technologie Programowania Systemów Internetowych","TPSI@zut.edu.pl");
+    zut.addFaculty(f2);
+    zut.getFaculties();
+    
+    
+    Map<String, Person> osoby = new HashMap<>();
+    osoby.put("90010112345", new Person("Jan", "Kowalski","JanKowalski@mail.pl"));
+    
+    Map<Integer, List<Student>> grupy = new HashMap<>();
+    List<Student> grupa32 = new ArrayList<>();
     }
 }

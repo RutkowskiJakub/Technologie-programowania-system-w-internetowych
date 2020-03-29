@@ -8,17 +8,14 @@ package Person;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Student
- */
-public class University implements EmailRecipient
+
+public class Faculty implements EmailRecipient
 {
     private String emailAddress;
     private String name;
-    public List<Faculty> faculties = new ArrayList<>();
+    public List<Teacher> teachers = new ArrayList<>();
     
-    public University(String name, String emailAddress)
+    public Faculty(String name, String emailAddress)
     {
         this.name = name;
         this.emailAddress = emailAddress;
@@ -31,19 +28,17 @@ public class University implements EmailRecipient
     {
         this.name = name;
     }
-    
-    
-    public List<Faculty> getFaculties()
+    public List<Teacher> getTeachers()
     {
-        for(Faculty faculty : faculties)
+        for(Teacher teacher : teachers)
         {
-            System.out.println(faculty);
+            System.out.println(teacher);
         }
-        return faculties;
+        return teachers;
     }
-    public void addFaculty(Faculty faculty)
+    public void addTeacher(Teacher teacher)
     {
-        faculties.add(faculty);
+        teachers.add(teacher);
     }
     
     @Override
@@ -51,6 +46,4 @@ public class University implements EmailRecipient
     {
         return emailAddress;
     }
-        
-    
 }
