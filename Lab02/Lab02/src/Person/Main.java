@@ -103,9 +103,11 @@ public class Main
     grupy.put(32, grupa32);
     
     
-    Set<String> zbiorDni = new HashSet<>();
-    //Set<String> zbiorDni = new TreeSet<>();
-    //
+    //Set<String> zbiorDni = new HashSet<>();
+    Set<String> zbiorDni = new TreeSet<>();
+    //Zbior dni utworzony za pomoca TreeSet jest posortowany w kolejnosci alfabetycznej. HashSet jest szybszy niz TreeSet
+    //W sytuacji gdy zalezy nam na posortowanych elementach lepiej jest uzyc TreeSet, a gdy zalezy nam na szybkosci lepiej jest uzyc TreeSet
+    //Nie, nie trzeba bylo nic zmieniac oprocz deklaracji
     zbiorDni.add("poniedziałek");
     zbiorDni.add("wtorek");
     zbiorDni.add("sroda");
@@ -120,6 +122,33 @@ public class Main
     
     for(String dzien : zbiorDni){
         System.out.println(dzien);
+    }
+    
+    
+    //Zadanie 2
+    System.out.println("ZADANIE 2");
+    Map<String, Teacher> wykazProwadzacych = new HashMap<>();
+    wykazProwadzacych.put("Programowanie Obiektowe", new Teacher("Maciej", "Poliwoda", "Maciej.Poliwoda@zut.edu.pl", "PO"));
+    wykazProwadzacych.put("Technologie Programowania Systemów Internetowych", new Teacher("Michał", "Kramarczyk", "Michal.Kramarczyk@zut.edu.pl", "TPSI"));
+    Teacher NauczycielPO = wykazProwadzacych.get("Programowanie Obiektowe");
+    NauczycielPO.getFirstName();
+    System.out.println(NauczycielPO);
+    System.out.println("------");
+    List<Student> grupa33 = new ArrayList<>();
+    List<Student> grupa34 = new ArrayList<>();
+    
+    Map<Integer, List<Student>> listaGrup = new HashMap<>();
+    listaGrup.put(32,grupa32);
+    listaGrup.put(33,grupa33);
+    listaGrup.put(34,grupa34);
+    grupa32.add(new Student("Robert", "Iksinski", "RobertIksinski@mail.pl", "32"));
+    List <Student> listaStudentow = new ArrayList<>();
+    listaStudentow = listaGrup.get(32);
+    for (Student czlonekGrupy : listaStudentow)
+    {
+        
+        czlonekGrupy.getFirstName();
+        System.out.println(czlonekGrupy);
     }
     
     
