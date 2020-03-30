@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.HashSet;
 import java.io.*;
 public class java {
 
@@ -41,6 +43,11 @@ public class java {
 //            System.out.println(skrot + " - " + dzien);
 //        }
     List<Product> Produkty = new ArrayList<>();
+    List<Product> Cat1 = new ArrayList<>();
+    List<Product> Cat2 = new ArrayList<>();
+    List<Product> Cat3 = new ArrayList<>();
+    List<Product> Cat4 = new ArrayList<>();
+    List<List<Product>> KATEGORIE = new ArrayList<>();
 
     
     try(BufferedReader in = new BufferedReader(new FileReader("plik.txt")))
@@ -83,20 +90,75 @@ public class java {
     }
     
     Map<Integer, Product> mapaProduktow = new HashMap<>();
-    for (Product produkt : Produkty)
-    {
-        mapaProduktow.put(produkt.id,produkt);
-    }
-    
     Map<String, List<Product>> mapaProduktow2 = new HashMap<>();
+    
+    
     for (Product produkt : Produkty)
     {
-        mapaProduktow2.put(produkt.category, Produkty);
+        mapaProduktow.put(produkt.id, produkt);
+        
+        if(mapaProduktow.containsKey(produkt.getCategory()))
+        {
+            List<Product> lista = mapaProduktow2.get(produkt.getCategory());
+            lista.add(produkt);
+            mapaProduktow2.replace(produkt.getCategory(), lista);
+        }
+        else
+        {
+            mapaProduktow2.put(produkt.getCategory(), new ArrayList<Product>());
+            List<Product> lista = mapaProduktow2.get(produkt.getCategory());
+            lista.add(produkt);
+            mapaProduktow2.replace(produkt.getCategory(), lista);
+        }
     }
+
     
+    System.out.println("-------1");
+
+    
+    
+    
+   // Set<String> Kategorie = new HashSet<>();
+    
+
+    
+//    for (Product produkt : Produkty)
+//    {
+////        //mapaProduktow2.put(produkt.category, Produkty);
+////        String X = produkt.category;
+////        System.out.println(X);
+////        Kategorie.add(produkt.category);      
+//        
+//        if (mapaProduktow2.containsKey(produkt.category)==false)
+//        {
+//            mapaProduktow2.put(produkt.category, List<Product> produkt.category = new ArrayList<>());
+//        }
+//    }
+//    
+//    System.out.println("------2");
+//    for(String xxx : Kategorie)
+//    {
+//        for(int i=0; i<Produkty.size(); i++)
+//        {
+//            Product bbbb = Produkty.get(i);
+//                   
+//        }
+////        for (Product produkt : Produkty)
+////        {
+////            
+////        }
+//        
+//        System.out.println(xxx);
+//    }
+//    //List<Product> Cat4 = new ArrayList<>();
+//    
+//    
+//    System.out.println("------3");
+//    System.out.println(Kategorie);
+
     
   
-
+//List<Product> Produkty = new ArrayList<>();
 
         
         
