@@ -43,10 +43,6 @@ public class java {
 //            System.out.println(skrot + " - " + dzien);
 //        }
     List<Product> Produkty = new ArrayList<>();
-    List<Product> Cat1 = new ArrayList<>();
-    List<Product> Cat2 = new ArrayList<>();
-    List<Product> Cat3 = new ArrayList<>();
-    List<Product> Cat4 = new ArrayList<>();
     List<List<Product>> KATEGORIE = new ArrayList<>();
 
     
@@ -101,19 +97,20 @@ public class java {
         {
             List<Product> lista = mapaProduktow2.get(produkt.getCategory());
             lista.add(produkt);
-            mapaProduktow2.replace(produkt.getCategory(), lista);
+            mapaProduktow2.put(produkt.getCategory(), lista);
         }
         else
         {
             mapaProduktow2.put(produkt.getCategory(), new ArrayList<Product>());
             List<Product> lista = mapaProduktow2.get(produkt.getCategory());
             lista.add(produkt);
-            mapaProduktow2.replace(produkt.getCategory(), lista);
+            mapaProduktow2.put(produkt.getCategory(), lista);
         }
     }
 
     
     System.out.println("-------1");
+    System.out.println(mapaProduktow2.get("oprogramowanie"));
 
     
     
