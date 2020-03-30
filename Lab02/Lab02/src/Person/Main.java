@@ -146,7 +146,6 @@ public class Main
     listaStudentow = listaGrup.get(32);
     for (Student czlonekGrupy : listaStudentow)
     {
-        
         czlonekGrupy.getFirstName();
         System.out.println(czlonekGrupy);
     }
