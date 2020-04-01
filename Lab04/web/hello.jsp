@@ -6,6 +6,6 @@
         <title>Java Web - laboratorium 4</title>
     </head>
     <body>
-        <h1>Witamy w JSP!</h1>
+        <h1>Cześć, ${imie}!</h1>
     </body>
 </html>
