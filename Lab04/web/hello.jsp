@@ -9,5 +9,9 @@
     <body>
         <h1> Cześć, <c:out value="${imie}"/>!</h1>
         <h1>Witaj ${imie} ${nazwisko} <a href="mailto:${mail}">Mail</a></h1>
+        
+<!--        Uzycie tagu c:out zabezpiecza nas przed atakami, poniewaz wypisze kod wpisany przez adwersarza jako tekst na stronie, 
+        a w przypadku uzycia wyrazenia ${imie} kod wpisany przez uzytkownika wykona sie-->
+       
     </body>
 </html>
