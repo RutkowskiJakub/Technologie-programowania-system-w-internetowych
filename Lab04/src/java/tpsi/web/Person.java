@@ -5,12 +5,31 @@
  */
 package tpsi.web;
 
-/**
- *
- * @author komp
- */
-public class Person {
+
+
+
+
+public class Person  {
     String firstName;
     String lastName;
     String email;
+    
+    
+    public String getFirstName()
+    {
+        return firstName;
+    }
+    public String getLastName()
+    {
+        return lastName;
+    }
+    public String getEmail()
+    {
+        return email;
+    }
+    @Override
+    public String toString()
+    {
+        return firstName + " " + lastName + " " + email;
+    }
 }
