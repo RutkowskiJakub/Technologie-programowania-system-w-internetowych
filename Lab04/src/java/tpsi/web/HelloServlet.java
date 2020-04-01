@@ -1,5 +1,6 @@
 package tpsi.web;
 
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,9 +14,17 @@ public class HelloServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-            String imie = request.getParameter("imie");
-            request.setAttribute("imie", imie);
+            
+            Person p1 = new Person();
+            p1.firstName = request.getParameter("firstName");
+            p1.lastName = request.getParameter("lastName");
+            p1.email = request.getParameter("email");
+            
+            
+            String imie = request.getParameter("name");
+            request.setAttribute("imie", p1.firstName);
+            request.setAttribute("nazwisko", p1.lastName);
+            request.setAttribute("mail", p1.email);
             request.getRequestDispatcher("hello.jsp").forward(request, response);
 
     }
