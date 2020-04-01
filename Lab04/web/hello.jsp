@@ -12,6 +12,13 @@
         
 <!--        Uzycie tagu c:out zabezpiecza nas przed atakami, poniewaz wypisze kod wpisany przez adwersarza jako tekst na stronie, 
         a w przypadku uzycia wyrazenia ${imie} kod wpisany przez uzytkownika wykona sie-->
+
+        <c:forEach items="${dniTygodnia}" var="dzien">
+            <p>
+                ${dzien}
+            </p>
+    
+        </c:forEach>
        
     </body>
 </html>
