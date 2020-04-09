@@ -18,28 +18,22 @@ public class HelloServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        int counter;
         HttpSession session = request.getSession();
-        //session.setAttribute("userName", "Jakub");
-       // String imie = (String) session.getAttribute("userName");
-        Integer visitCount = new Integer(0);
-        String visitCountKey = new String("visitCount");
-        String userIDKey = new String("userID");
-        String userID = new String("ABCD");
-        
-        if (session.isNew())
+        if(session.getAttribute("counter") != null)
         {
-            session.setAttribute(userIDKey, userID);
+            counter = (int) session.getAttribute("counter");
         }
         else
         {
-        visitCount = (Integer)session.getAttribute("visitCountKey");
-        visitCount += 1;
-        userID = (String)session.getAttribute(userIDKey);
+            counter = 0;
         }
-        session.setAttribute(visitCountKey, visitCount);
+        counter++;
+        session.setAttribute("counter", counter);
+        
+        
         
         response.setContentType("text/html;charset=UTF-8");
-
 
         try (PrintWriter out = response.getWriter()) {
             out.println("<!DOCTYPE html>");
@@ -49,7 +43,7 @@ public class HelloServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             //out.println("<h1>username: " + imie +"</h1>");
-            out.println("Liczba wizyt: " + visitCount);
+            out.println("Liczba wizyt: " + (Integer)session.getAttribute("counter"));
             out.println("</body>");
             out.println("</html>");
         }
