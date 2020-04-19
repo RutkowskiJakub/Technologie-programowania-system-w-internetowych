@@ -5,3 +5,4 @@ Pytania na egzamin.txt
 *.xml
 /Lab05/nbproject/private/
 /Lab05/build/
+/Lab05/dist/
