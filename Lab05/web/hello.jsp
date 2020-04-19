@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,13 +8,19 @@
     </head>
     <body>
         <h1>Witamy w JSP!</h1>
-        Licznik odwiedzin: ${sesja}
+        Licznik odwiedzin: ${licznik}
         <br><br>
         
         
         <table border =\"1\" align = \"center\"> 
         <tr> <th> Imie</th> <th> Nazwisko </th> <th> email </th> </tr>
+        <c:forEach items="${studenci}" var="student">
+            <tr>
+                <th> ${student.getFirstName()} </th> <th> ${student.getLastName()} </th> <th> ${student.getEmail()} </th>
+            </tr>    
+        </c:forEach>
         
+
         </table>
         <br><br>
         
@@ -30,22 +37,6 @@
   
         </form>
 <br>
-<br>
-        TUTAJ TESTUJE:  ${studenci}
-        <br>
-        
-        
-        <br>
-        TUTAJ STARE TESTY:
-        
-         <c:forEach items="${studenci}" var="student">
-             ${student.getName()}
-             <c:forEach items="student" var="osoba">
-            <p>
-                ${osoba.getName()} ${osoba.getLastName()} ${osoba.getEmail()}
-            </p>
-             </c:forEach>
-        </c:forEach>
-            
+<br>        
     </body>
 </html>
